@@ -1,14 +1,15 @@
 # winter-product
 
-A [winter](https://codeberg.org/pgross/winter) extension that adds product-workflow tooling to a winter workspace: planning conventions, product agents, and the `todo` skill, plus the actual `plans/`, `todos/`, and `archive/` directories where work items live.
+A [winter](https://codeberg.org/pgross/winter) extension that adds product-workflow tooling to a winter workspace: a prioritized backlog, planning conventions, product agents, and skills for refining and capturing work — plus the actual `backlog/`, `work/`, and `archive/` directories where items live.
 
 ## Features
 
-- **Plan-first product workflow** — multi-phase work lives in `plans/<name>/` with overview, phases, and a defined lifecycle from draft to archive. One convention across every project in the workspace.
-- **Voice-of-the-user planning** — the `wp-product-specialist` agent thinks in user terms and writes the plan; it doesn't dive into code unless the plan calls for it.
-- **Code-aware technical approaches** — the `wp-product-engineer` agent bridges product and code, exploring the repos and writing `.tech.md` approach docs against approved plans.
-- **Lightweight TODO capture** — the `/wp-todo` skill drops deferred work into `todos/<name>.md` so small follow-ups don't get lost when the current feature is the priority.
-- **Archive-by-default lifecycle** — completed plans and TODOs move into `archive/` with a date prefix instead of being deleted, so the history of what was built (and why) stays in the workspace.
+- **Prioritized backlog** — `backlog/01-now/`, `02-next/`, `05-near/`, `10-future/` give every item an explicit priority. Three lightweight types — `.idea.md`, `.todo.md`, `.work.md` — capture concepts at the right level of detail.
+- **Backlog → work → archive lifecycle** — items promote from `backlog/` into `work/<name>/` when they're ready, and archive into `archive/yyyy-MM-dd-<name>/` when complete. History stays in the workspace.
+- **Voice-of-the-user planning** — the `product-specialist` agent thinks in user terms and writes the work items; it doesn't dive into code unless the plan calls for it.
+- **Code-aware technical approaches** — the `product-engineer` agent bridges product and code, exploring the repos and writing `.tech.md` approach docs against approved work items.
+- **Refine-to-ready workflow** — the `/refine` skill evaluates a backlog item against the quality bar, fills gaps interactively, promotes it to `work/`, and orchestrates the technical approach.
+- **Lightweight TODO capture** — the `/todo` skill drops deferred work into `backlog/01-now/<name>.todo.md` so small follow-ups don't get lost when the current feature is the priority.
 
 ## Installation
 
@@ -20,8 +21,8 @@ name = "winter-product"
 url = "git@codeberg.org:pgross/winter-product.git"
 ```
 
-Then run `winter ws init`. The extension's agents become available as `wp-product-engineer` and `wp-product-specialist`, and the skill as `/wp-todo`.
+Then run `winter ws init`. The extension's agents become available as `product-engineer` and `product-specialist`, and the skills as `/{prefix}-todo` and `/{prefix}-refine`.
 
-> **Note:** This repository is intended to be **forked**. The `plans/`, `todos/`, and `archive/` directories are your project's product backlog and belong under version control in your fork. Point your workspace's `.winter/config.toml` at your fork's URL so plans and TODOs created during development are tracked alongside the rest of your project history.
+> **Note:** This repository is intended to be **forked**. The `backlog/`, `work/`, and `archive/` directories are your project's product backlog and belong under version control in your fork. Point your workspace's `.winter/config.toml` at your fork's URL so items created during development are tracked alongside the rest of your project history.
 
 See [`index.md`](./index.md) for the full layout — that file is auto-loaded into every Claude session that runs in a winter workspace with this extension installed.

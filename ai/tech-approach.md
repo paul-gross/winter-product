@@ -1,6 +1,6 @@
 # Technical Approach Files (*.tech.md)
 
-Technical approach files sit alongside their corresponding plan files and describe the *structural changes* to the codebase at an architectural level — what new projects, classes, and interfaces will exist and where they fit. Phase documents then provide step-by-step implementation instructions for those structures. Tech approach files are created **after** the product plan has been reviewed and approved.
+Technical approach files sit alongside their corresponding work documents and describe the *structural changes* to the codebase at an architectural level — what new projects, classes, and interfaces will exist and where they fit. Phase documents then provide step-by-step implementation instructions for those structures. Tech approach files are created **after** the work item has been promoted from the backlog and the overview has been approved.
 
 ## Purpose
 
@@ -8,14 +8,14 @@ The tech approach bridges product plans and implementation. It answers: what new
 
 ## Naming Convention
 
-Tech approach files mirror the plan file they accompany, with a `.tech.md` suffix:
+Tech approach files mirror the document they accompany, with a `.tech.md` suffix:
 
 ```
 00-overview.md          →  00-overview.tech.md
 01-phase-one.md         →  01-phase-one.tech.md
 ```
 
-Not every plan file needs a tech approach. Use them when the plan involves structural changes to the codebase (new classes, interfaces, projects, API endpoints). Simple plans that modify existing code within well-understood patterns may not need one.
+Not every work item needs a tech approach. Use them when the work involves structural changes to the codebase (new classes, interfaces, projects, API endpoints). Simple work that modifies existing code within well-understood patterns may not need one.
 
 ## Content Guidelines
 
@@ -45,9 +45,9 @@ Tech approach files should be:
 
 ## Creation Process
 
-Tech approach files are created by the `product-engineer` agent. This agent explores the codebase to understand existing patterns and writes the approach alongside the product plan. The workflow:
+Tech approach files are created by the `product-engineer` agent. This agent explores the codebase to understand existing patterns and writes the approach alongside the work item. The workflow:
 
-1. Product plan is created and reviewed by the user
-2. User requests a technical approach
+1. Work item is promoted from backlog to `winter-product:/work/<name>/` and reviewed by the user
+2. User requests a technical approach (or the `/refine` skill orchestrates it automatically)
 3. The `product-engineer` agent explores the codebase and writes the `.tech.md` file
 4. User reviews the technical approach before implementation begins

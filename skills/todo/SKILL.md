@@ -27,7 +27,7 @@ Present the derived name to the user with `AskUserQuestion` and offer to adjust 
 
 ## Step 2: Write the TODO File
 
-Create `winter-product:/todos/<name>.md`. Fill in each section using:
+Create `winter-product:/backlog/01-now/<name>.todo.md` using the TODO file format defined in `winter-product:/ai/todos.md`. Fill in each section using:
 - The freeform description from `$ARGUMENTS`
 - Current conversation context (what the user has been working on, why this came up)
 - Codebase knowledge if available (file paths, service names)
