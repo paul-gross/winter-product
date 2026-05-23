@@ -37,6 +37,12 @@ No subdirectories, no phases, no tech files. One file = one TODO.
 
 **kebab-case-lowercase**. Examples: `refactor-auth-service.todo.md`, `input-validation-cleanup.todo.md`.
 
+## Priority Bucket
+
+TODOs are deferred work by definition, so the default bucket is `02-next` — "pick up after the current item, but no rush." Reserve `01-now` for TODOs that should be worked on as soon as the current branch merges; use `05-near` and `10-future` for items that are further out.
+
+The `/todo` skill asks the user for the bucket (defaulting to `02-next`) and validates the choice against the actual `backlog/` directories at runtime, so adding or renaming a bucket on disk is enough — no skill update needed.
+
 ## Lifecycle
 
 TODOs follow the standard lifecycle: `backlog/ → work/ → archive/`. When a TODO is worked on, it moves to `work/<name>/` as a directory (typically still a single file inside). When complete, it archives — usually as a flat file at `winter-product:/archive/yyyy-MM-dd-todo-<name>.md` since most TODOs don't grow into multi-file directories.
