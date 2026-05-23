@@ -9,9 +9,9 @@ Refine a backlog item into work-ready quality and promote it to active work.
 ## Argument Parsing
 
 Parse `$ARGUMENTS` for an **item name** (required): a kebab-case name matching a file under `winter-product:/backlog/`. Examples:
-- `/refine user-notifications`
-- `/refine dependency-upgrade`
-- `/refine project-restructure`
+- `/wp-refine user-notifications`
+- `/wp-refine dependency-upgrade`
+- `/wp-refine project-restructure`
 
 ## Step 0: Find the Item
 

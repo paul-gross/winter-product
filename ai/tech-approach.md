@@ -48,6 +48,6 @@ Tech approach files should be:
 Tech approach files are created by the `product-engineer` agent. This agent explores the codebase to understand existing patterns and writes the approach alongside the work item. The workflow:
 
 1. Work item is promoted from backlog to `winter-product:/work/<name>/` and reviewed by the user
-2. User requests a technical approach (or the `/refine` skill orchestrates it automatically)
+2. User requests a technical approach (or the `/wp-refine` skill orchestrates it automatically)
 3. The `product-engineer` agent explores the codebase and writes the `.tech.md` file
 4. User reviews the technical approach before implementation begins

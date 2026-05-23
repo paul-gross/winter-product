@@ -8,8 +8,8 @@ A [winter](https://codeberg.org/pgross/winter) extension that adds product-workf
 - **Backlog → work → archive lifecycle** — items promote from `backlog/` into `work/<name>/` when they're ready, and archive into `archive/yyyy-MM-dd-<name>/` when complete. History stays in the workspace.
 - **Voice-of-the-user planning** — the `product-specialist` agent thinks in user terms and writes the work items; it doesn't dive into code unless the plan calls for it.
 - **Code-aware technical approaches** — the `product-engineer` agent bridges product and code, exploring the repos and writing `.tech.md` approach docs against approved work items.
-- **Refine-to-ready workflow** — the `/refine` skill evaluates a backlog item against the quality bar, fills gaps interactively, promotes it to `work/`, and orchestrates the technical approach.
-- **Lightweight TODO capture** — the `/todo` skill drops deferred work into `backlog/01-now/<name>.todo.md` so small follow-ups don't get lost when the current feature is the priority.
+- **Refine-to-ready workflow** — the `/wp-refine` skill evaluates a backlog item against the quality bar, fills gaps interactively, promotes it to `work/`, and orchestrates the technical approach.
+- **Lightweight TODO capture** — the `/wp-todo` skill drops deferred work into `backlog/01-now/<name>.todo.md` so small follow-ups don't get lost when the current feature is the priority.
 
 ## Installation
 
@@ -21,7 +21,7 @@ name = "winter-product"
 url = "git@codeberg.org:pgross/winter-product.git"
 ```
 
-Then run `winter ws init`. The extension's agents become available as `product-engineer` and `product-specialist`, and the skills as `/{prefix}-todo` and `/{prefix}-refine`.
+Then run `winter ws init`. The extension's agents become available as `product-engineer` and `product-specialist`, and the skills as `/wp-todo` and `/wp-refine` — the `wp-` prefix comes from `prefix = "wp"` in `winter-ext.toml` and is applied by winter-cli at install time.
 
 > **Note:** This repository is intended to be **forked**. The `backlog/`, `work/`, and `archive/` directories are your project's product backlog and belong under version control in your fork. Point your workspace's `.winter/config.toml` at your fork's URL so items created during development are tracked alongside the rest of your project history.
 

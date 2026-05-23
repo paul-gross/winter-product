@@ -8,7 +8,7 @@ When a user requests a new feature or improvement:
 
 1. **Determine the item type**
    - `.idea.md` — rough concept, needs design thinking
-   - `.todo.md` — small, concrete, well-defined (use the `/todo` skill)
+   - `.todo.md` — small, concrete, well-defined (use the `/wp-todo` skill)
    - `.work.md` — product-level plan, potentially multi-phase
 
 2. **Choose a priority bucket**
@@ -29,7 +29,7 @@ When a user requests a new feature or improvement:
 
 ## Refining and Promoting to Work
 
-Use the `/refine` skill to take a backlog item to work-ready quality and promote it.
+Use the `/wp-refine` skill to take a backlog item to work-ready quality and promote it.
 
 The refine flow:
 
@@ -40,7 +40,7 @@ The refine flow:
 5. **Phase documents** — for multi-phase work, create numbered `01-<phase-name>.md`, `02-<phase-name>.md`, etc. with the technical specificity needed for implementation.
 6. **Commit** the tech approach and phases as `product(<name>): add technical approach`.
 
-For a manual promotion (without `/refine`):
+For a manual promotion (without `/wp-refine`):
 
 1. Confirm the item is solid (clear business objective, success criteria, approach, phases)
 2. Create `winter-product:/work/<name>/`

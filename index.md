@@ -1,6 +1,6 @@
 # Product workflow
 
-A prioritized backlog, an active work area, and an archive — with the conventions, agents, and skills that move items through them. The `product-specialist` agent shapes work items; the `/refine` skill turns them into work-ready items; the `product-engineer` agent writes `.tech.md` approach docs. The `/todo` skill captures small deferred work.
+A prioritized backlog, an active work area, and an archive — with the conventions, agents, and skills that move items through them. The `product-specialist` agent shapes work items; the `/wp-refine` skill turns them into work-ready items; the `product-engineer` agent writes `.tech.md` approach docs. The `/wp-todo` skill captures small deferred work.
 
 ## Path notation
 
@@ -33,6 +33,6 @@ Items flow `backlog/ → work/ → archive/`:
 2. **Work** — promoted to `work/<name>/` as a directory. `.work.md` items get fleshed out with `00-overview.md`, optional `.tech.md` files, and numbered phase documents. `.todo.md` items typically stay a single file inside the directory.
 3. **Archive** — moved to `archive/yyyy-MM-dd-<name>/` (or `archive/yyyy-MM-dd-todo-<name>.md` for a flat TODO) when the work merges to the main branch.
 
-The `/refine` skill is the primary way to move an item from backlog to work-ready, including writing the technical approach. The `/todo` skill is the fast path for dropping new TODOs into the backlog.
+The `/wp-refine` skill is the primary way to move an item from backlog to work-ready, including writing the technical approach. The `/wp-todo` skill is the fast path for dropping new TODOs into the backlog.
 
 Full conventions in [ai/index.md](./ai/index.md).
