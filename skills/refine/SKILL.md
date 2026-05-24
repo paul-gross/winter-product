@@ -4,7 +4,7 @@ model: opus
 allowed-tools: Bash, Read, Write, Edit, Glob, Grep, Task, AskUserQuestion
 ---
 
-Refine a backlog item into work-ready quality and promote it to active work.
+Refine a backlog item into work-ready quality and promote it to active work. The skill branches by item type — work items (`.work.md`), TODOs (`.todo.md`), and ideas (`.idea.md`) each have their own rubric and promotion shape.
 
 ## Argument Parsing
 
@@ -17,15 +17,23 @@ Parse `$ARGUMENTS` for an **item name** (required): a kebab-case name matching a
 
 Look up the name by searching `winter-product:/backlog/**/<name>.*.md`. If no match is found, list available backlog items and ask the user which one they meant.
 
-Read the file. Note the item type (`.idea.md`, `.todo.md`, or `.work.md`) and priority bucket.
+Read the file. **Note the item type** — the type drives which rubric Step 1 uses and which promotion shape Step 2 produces:
 
-## Step 1: Evaluate the Work Item
+| Type | Format spec | Step 1 rubric | Step 2 shape |
+|------|-------------|----------------|---------------|
+| `.idea.md` | free-form concept (no spec) | rewrite-as-work-item | promote as `.work.md` (Step 3 runs) |
+| `.todo.md` | `winter-product:/ai/todos.md` | TODO rubric (below) | promote as flat `work/<name>/` (Step 3 skipped) |
+| `.work.md` | `winter-product:/ai/overview-format.md` | work-item rubric (below) | promote as `00-overview.md` + phases (Step 3 runs) |
 
-Assess the item against the quality standards defined in `winter-product:/ai/overview-format.md` and `winter-product:/ai/writing-style.md`. The goal is a **business-facing work item** that clearly communicates what, why, and how — without technical implementation details.
+## Step 1: Evaluate
 
-### Evaluation Criteria
+Branch by item type. In all branches the goal is the same — **rate each criterion as present/strong, weak/incomplete, or missing, then refine interactively** — but the criteria differ.
 
-Rate each of the following as present/strong, weak/incomplete, or missing:
+### 1a. Work item (`.work.md`)
+
+Assess against the quality standards in `winter-product:/ai/overview-format.md` and `winter-product:/ai/writing-style.md`. The goal is a **business-facing work item** that clearly communicates what, why, and how — without technical implementation details.
+
+Criteria:
 
 1. **Business Objective** — Is there a clear 1-2 sentence problem statement or opportunity?
 2. **Success Criteria** — Are there measurable, concrete outcomes?
@@ -34,14 +42,25 @@ Rate each of the following as present/strong, weak/incomplete, or missing:
 5. **Dependencies** — Are prerequisites and related work identified?
 6. **Risks & Considerations** — Are known challenges or open decisions called out?
 
-Also check for:
-- **Open questions or uncertainties** — Anything left vague or unresolved that would block implementation
-- **Gaps** — Missing sections, incomplete reasoning, or hand-waved details
-- **Scope clarity** — Is it clear what is in scope and what is not?
+### 1b. TODO (`.todo.md`)
+
+Assess against `winter-product:/ai/todos.md`. TODOs are deliberately lightweight — a good TODO is short, scoped, and self-contained, not a stripped-down work item.
+
+Criteria:
+
+1. **What** — 1-3 sentences naming the concrete change. Vague or open-ended? Refine.
+2. **Why** — 1-2 sentences explaining why this was deferred or why it matters. Missing rationale → refine.
+3. **Where** — File paths or areas of the codebase affected. Missing or "tbd" → refine.
+4. **Done When** — 1-3 concrete acceptance bullets. Each bullet should be checkable by another agent. Fuzzy ("looks better") → refine to "X function returns Y".
+5. **Scope** — TODOs are *single-session*, no architectural decisions, no multi-phase. If the item smells multi-session or design-heavy, propose **converting to a `.work.md`** instead of refining as a TODO.
+
+### 1c. Idea (`.idea.md`)
+
+Ideas are pre-format — no rubric to grade against. The refine step here is **a rewrite, not a polish**. Ask the user enough targeted questions to determine whether this should become a TODO or a work item, then rewrite into the chosen format and **rename the file** (`.idea.md` → `.todo.md` or `.work.md`). Then re-enter 1a or 1b for the rewritten content.
 
 ### Present the Evaluation
 
-Give the user a structured evaluation:
+For 1a and 1b, give the user a structured evaluation:
 
 1. **Overall assessment** — One sentence: is this ready, close, or needs significant work?
 2. **What's strong** — Call out the parts that are well-defined
@@ -54,24 +73,35 @@ If the item needs work:
 - Propose specific improvements or additions for the weakest areas
 - Ask the user targeted questions to fill gaps (don't ask open-ended "what do you think?" — be specific: "Should preferences be per-user or per-workspace?")
 - After discussion, update the file with the refined content
-- If the item started as an `.idea.md`, it will likely need to be rewritten as a proper `.work.md` format
 
 If the item is already solid, tell the user so and proceed to Step 2.
 
-**Do not proceed to Step 2 until the user confirms the work item content is good.**
+**Do not proceed to Step 2 until the user confirms the content is good.**
 
 ## Step 2: Promote to Work
 
-Once the work item is solid, promote it from the backlog into active work.
+Once the item is solid, promote it from the backlog into active work. The shape differs by type:
+
+### 2a. Work item (`.work.md`)
 
 1. Create `winter-product:/work/<name>/`
 2. Copy the backlog file into the work directory as `00-overview.md` (the canonical overview filename per `winter-product:/ai/overview-format.md`)
 3. Remove the original backlog file
 4. Commit: `product(<name>): promote from backlog`
+5. Proceed to Step 3 (Technical Approach).
 
-## Step 3: Technical Approach
+### 2b. TODO (`.todo.md`)
 
-Create the technical approach. This bridges the product plan and implementation.
+Per `winter-product:/ai/todos.md`, TODOs in active work stay as a single file inside a thin directory — no overview, no phases, no tech approach.
+
+1. Create `winter-product:/work/<name>/`
+2. Move the backlog `<name>.todo.md` into the work directory as `<name>.todo.md` (keep the `.todo.md` suffix; the directory is the only structural change)
+3. Commit: `product(<name>): promote from backlog`
+4. **Skip Step 3** — TODOs don't get a technical approach. Jump to Step 4 (Report).
+
+## Step 3: Technical Approach (work items only)
+
+Create the technical approach. This bridges the product plan and implementation. **This step does not run for TODOs.**
 
 ### Create the Technical Approach
 
@@ -103,6 +133,6 @@ product(<name>): add technical approach
 
 Summarize what was done:
 - The work item location: `winter-product:/work/<name>/`
-- Files created (overview, tech approach, phases)
+- Files created (overview/TODO + tech approach + phases, as applicable)
 
 $ARGUMENTS
