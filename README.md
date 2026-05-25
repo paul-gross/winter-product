@@ -1,6 +1,6 @@
 # winter-product
 
-A [winter](https://codeberg.org/pgross/winter) extension that adds product-workflow tooling to a winter workspace: a prioritized backlog, planning conventions, product agents, and skills for refining and capturing work — plus the actual `backlog/`, `work/`, and `archive/` directories where items live.
+A [winter](https://github.com/paul-gross/winter) extension that adds product-workflow tooling to a winter workspace: a prioritized backlog, planning conventions, product agents, and skills for refining and capturing work — plus the actual `backlog/`, `work/`, and `archive/` directories where items live.
 
 ## Features
 
@@ -18,7 +18,7 @@ Add to the workspace's `.winter/config.toml`:
 ```toml
 [[standalone_repository]]
 name = "winter-product"
-url = "git@codeberg.org:pgross/winter-product.git"
+url = "git@github.com:paul-gross/winter-product.git"
 ```
 
 Then run `winter ws init`. The extension's agents become available as `product-engineer` and `product-specialist`, and the skills as `/wp-todo` and `/wp-refine` — the `wp-` prefix comes from `prefix = "wp"` in `winter-ext.toml` and is applied by winter-cli at install time.

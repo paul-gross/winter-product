@@ -10,7 +10,7 @@ Conventional Commits with a scope:
 
 - Types: `feat`, `fix`, `docs`, `chore`, `refactor`, `test`, `perf`, `style`, `ai`, `product`, `todo`
 - Scope: repo name or subsystem (e.g. `winter-product`, `agents`, `skills`)
-- The `/wf-commit` skill from [winter-workflow](https://codeberg.org/pgross/winter-workflow) generates commits in this format
+- The `/wf-commit` skill from [winter-workflow](https://github.com/paul-gross/winter-workflow) generates commits in this format
 
 ### Product-backlog types
 
