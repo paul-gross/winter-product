@@ -1,6 +1,6 @@
 # Backlog & Work Conventions
 
-Conventions for managing the product backlog, active work, and the lifecycle between them. See [`index.md`](../index.md) at the extension root for the directory layout, item types, and lifecycle overview.
+Conventions for managing the product backlog, active work, and the lifecycle between them. See [`index.md`](../index.md) at the extension root for the directory layout and the runtime surface (skills and agents).
 
 ## Documents
 
