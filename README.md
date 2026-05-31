@@ -2,6 +2,8 @@
 
 A [winter](https://github.com/paul-gross/winter) extension that adds product-workflow tooling to a winter workspace: a prioritized backlog, planning conventions, product agents, and skills for refining and capturing work — plus the actual `backlog/`, `work/`, and `archive/` directories where items live.
 
+📚 **Documentation:** <https://paul-gross.github.io/winter-docs/>
+
 ## ✨ Features
 
 - **Prioritized backlog** — `backlog/01-now/`, `02-next/`, `05-near/`, `10-future/` give every item an explicit priority. Three lightweight types — `.idea.md`, `.todo.md`, `.work.md` — capture concepts at the right level of detail.
