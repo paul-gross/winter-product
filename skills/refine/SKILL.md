@@ -1,6 +1,5 @@
 ---
 description: Refine a backlog item — evaluate quality, fill gaps interactively with the user, promote to active work, and create a technical approach
-model: opus
 allowed-tools: Bash, Read, Write, Edit, Glob, Grep, Task, AskUserQuestion
 ---
 

@@ -1,6 +1,5 @@
 ---
 description: Create a lightweight TODO for deferred work items — small refactors, quick enhancements, things to do after the current feature merges
-model: sonnet
 allowed-tools: Bash, Read, Write, Edit, Glob, Grep, AskUserQuestion
 ---
 
