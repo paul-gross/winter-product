@@ -40,6 +40,8 @@ The refine flow:
 5. **Phase documents** — for multi-phase work, create numbered `01-<phase-name>.md`, `02-<phase-name>.md`, etc. with the technical specificity needed for implementation. Acceptance criteria reference capability IDs from the tech approach's matrix ("verify via `err.smtp` + `obs.audit`"); a phase that references a `wanted` row schedules that tooling work before the dependent feature work.
 6. **Commit** the tech approach and phases as `product(<name>): add technical approach`.
 
+After the tech approach lands — or whenever a plan changes significantly — the `plan-review` skill spawns a cold `plan-reviewer` agent that checks the work item against these specs and reports must-fix findings before implementation begins.
+
 For a manual promotion (without `/refine`):
 
 1. Confirm the item is solid (clear business objective, success criteria, approach, phases)

@@ -11,6 +11,7 @@ A [winter](https://github.com/paul-gross/winter) extension that adds product-wor
 - **Voice-of-the-user planning** — the `product-specialist` agent thinks in user terms and writes the work items; it doesn't dive into code unless the plan calls for it.
 - **Code-aware technical approaches** — the `product-engineer` agent bridges product and code, exploring the repos and writing `.tech.md` approach docs against approved work items.
 - **Refine-to-ready workflow** — the `/refine` skill evaluates a backlog item against the quality bar, fills gaps interactively, promotes it to `work/`, and orchestrates the technical approach.
+- **Cold plan review** — the `plan-review` skill spawns a fresh-context `plan-reviewer` agent that checks a work item's overview, tech approach (including its verification capability matrix), and phases against the planning specs and reports must-fix findings.
 - **Lightweight TODO capture** — the `/todo` skill drops deferred work into `backlog/01-now/<name>.todo.md` so small follow-ups don't get lost when the current feature is the priority.
 
 ## 🚀 Installation
@@ -23,7 +24,7 @@ name = "winter-product"
 url = "git@github.com:paul-gross/winter-product.git"
 ```
 
-Then run `winter ws init`. The extension's agents become available as `product-engineer` and `product-specialist`, and the `/todo` and `/refine` skills install under the workspace's configured prefix — by default `prefix = "wp"` in `winter-ext.toml`, so winter-cli wires them up as `/wp-todo` and `/wp-refine` in this configuration.
+Then run `winter ws init`. The extension's agents become available as `product-engineer`, `product-specialist`, and `plan-reviewer`, and the `todo`, `refine`, and `plan-review` skills install under the workspace's configured prefix — by default `prefix = "wp"` in `winter-ext.toml`, so winter-cli wires them up as `/wp-todo`, `/wp-refine`, and `/wp-plan-review` in this configuration.
 
 > **Note:** This repository is intended to be **forked**. The `backlog/`, `work/`, and `archive/` directories are your project's product backlog and belong under version control in your fork. Point your workspace's `.winter/config.toml` at your fork's URL so items created during development are tracked alongside the rest of your project history.
 

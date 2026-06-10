@@ -1,6 +1,6 @@
 # Product workflow
 
-A prioritized backlog, an active work area, and an archive — with the conventions, agents, and skills that move items through them. The `product-specialist` agent shapes work items; the `/refine` skill turns them into work-ready items; the `product-engineer` agent writes `.tech.md` approach docs. The `/todo` skill captures small deferred work.
+A prioritized backlog, an active work area, and an archive — with the conventions, agents, and skills that move items through them. The `product-specialist` agent shapes work items; the `/refine` skill turns them into work-ready items; the `product-engineer` agent writes `.tech.md` approach docs. The `/todo` skill captures small deferred work. The `plan-review` skill spawns a cold `plan-reviewer` agent to check a plan against the planning specs before implementation begins.
 
 ## Path notation
 
