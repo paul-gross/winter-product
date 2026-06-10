@@ -10,9 +10,9 @@ Read `winter-product:/ai/todos.md` for the file format, naming rules, and archiv
 ## Argument Parsing
 
 Parse `$ARGUMENTS` as a freeform description of the work to be done. Examples:
-- `/todo Refactor UserService to use the new DTO pattern`
-- `/todo Add input validation to the billing endpoints`
-- `/todo Clean up unused imports in the API controllers`
+- `todo Refactor UserService to use the new DTO pattern`
+- `todo Add input validation to the billing endpoints`
+- `todo Clean up unused imports in the API controllers`
 
 ## Step 1: Derive a Name
 

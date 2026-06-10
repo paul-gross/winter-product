@@ -1,6 +1,6 @@
 # Product workflow
 
-A prioritized backlog, an active work area, and an archive — with the conventions, agents, and skills that move items through them. The `product-specialist` agent shapes work items; the `/refine` skill turns them into work-ready items; the `product-engineer` agent writes `.tech.md` approach docs. The `/todo` skill captures small deferred work. The `plan-review` skill spawns a cold `plan-reviewer` agent to check a plan against the planning specs before implementation begins.
+A prioritized backlog, an active work area, and an archive — with the conventions, agents, and skills that move items through them. The `product-specialist` agent shapes work items; the `refine` skill turns them into work-ready items; the `product-engineer` agent writes `.tech.md` approach docs. The `todo` skill captures small deferred work. The `plan-review` skill spawns a cold `plan-reviewer` agent to check a plan against the planning specs before implementation begins.
 
 ## Path notation
 
@@ -17,4 +17,4 @@ Files in this extension are addressed with the `winter-product:` prefix — for 
 
 ## Conventions
 
-The item-type formats (`.idea.md` / `.todo.md` / `.work.md`) and the `backlog/ → work/ → archive/` lifecycle are documented under [ai/](./ai/index.md) — start there before adding, refining, or archiving an item. The `/refine` skill moves an item from backlog to work-ready (including the technical approach); the `/todo` skill is the fast path for dropping new TODOs into the backlog.
+The item-type formats (`.idea.md` / `.todo.md` / `.work.md`) and the `backlog/ → work/ → archive/` lifecycle are documented under [ai/](./ai/index.md) — start there before adding, refining, or archiving an item. The `refine` skill moves an item from backlog to work-ready (including the technical approach); the `todo` skill is the fast path for dropping new TODOs into the backlog.

@@ -8,7 +8,7 @@ When a user requests a new feature or improvement:
 
 1. **Determine the item type**
    - `.idea.md` — rough concept, needs design thinking
-   - `.todo.md` — small, concrete, well-defined (use the `/todo` skill)
+   - `.todo.md` — small, concrete, well-defined (use the `todo` skill)
    - `.work.md` — product-level plan, potentially multi-phase
 
 2. **Choose a priority bucket**
@@ -29,7 +29,7 @@ When a user requests a new feature or improvement:
 
 ## Refining and Promoting to Work
 
-Use the `/refine` skill to take a backlog item to work-ready quality and promote it.
+Use the `refine` skill to take a backlog item to work-ready quality and promote it.
 
 The refine flow:
 
@@ -42,7 +42,7 @@ The refine flow:
 
 After the tech approach lands — or whenever a plan changes significantly — the `plan-review` skill spawns a cold `plan-reviewer` agent that checks the work item against these specs and reports must-fix findings before implementation begins.
 
-For a manual promotion (without `/refine`):
+For a manual promotion (without `refine`):
 
 1. Confirm the item is solid (clear business objective, success criteria, approach, phases)
 2. Create `winter-product:/work/<name>/`

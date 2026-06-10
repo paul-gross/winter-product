@@ -10,9 +10,9 @@ A [winter](https://github.com/paul-gross/winter) extension that adds product-wor
 - **Backlog → work → archive lifecycle** — items promote from `backlog/` into `work/<name>/` when they're ready, and archive into `archive/yyyy-MM-dd-<name>/` when complete. History stays in the workspace.
 - **Voice-of-the-user planning** — the `product-specialist` agent thinks in user terms and writes the work items; it doesn't dive into code unless the plan calls for it.
 - **Code-aware technical approaches** — the `product-engineer` agent bridges product and code, exploring the repos and writing `.tech.md` approach docs against approved work items.
-- **Refine-to-ready workflow** — the `/refine` skill evaluates a backlog item against the quality bar, fills gaps interactively, promotes it to `work/`, and orchestrates the technical approach.
+- **Refine-to-ready workflow** — the `refine` skill evaluates a backlog item against the quality bar, fills gaps interactively, promotes it to `work/`, and orchestrates the technical approach.
 - **Cold plan review** — the `plan-review` skill spawns a fresh-context `plan-reviewer` agent that checks a work item's overview, tech approach (including its verification capability matrix), and phases against the planning specs and reports must-fix findings.
-- **Lightweight TODO capture** — the `/todo` skill drops deferred work into `backlog/01-now/<name>.todo.md` so small follow-ups don't get lost when the current feature is the priority.
+- **Lightweight TODO capture** — the `todo` skill drops deferred work into `backlog/01-now/<name>.todo.md` so small follow-ups don't get lost when the current feature is the priority.
 
 ## 🚀 Installation
 
