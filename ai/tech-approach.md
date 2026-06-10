@@ -35,12 +35,13 @@ Tech approach files should be:
 - Key method signatures and their purpose
 - Dependencies between new components
 - Which existing patterns or conventions the new code follows
+- A verification capability matrix — the per-module table of verification capabilities the work needs, with missing tooling marked `wanted` (format: [capability-matrix.md](./capability-matrix.md); exemplar: [exemplars/capability-matrix.tech.md](./exemplars/capability-matrix.tech.md))
 
 ## What to Exclude
 
 - Full method implementations or pseudocode (that belongs in phase documents)
 - Business justification (that belongs in the overview)
-- Testing strategies (that belongs in phase documents)
+- Free-text test plans (those belong in phase documents — the verification capability matrix above is the only testing content a `.tech.md` carries)
 - Detailed error handling or edge cases
 
 ## Creation Process

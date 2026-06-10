@@ -41,6 +41,10 @@ When identifying possibilities, frame them as user experiences built on existing
 
 Follow `winter-product:/ai/tech-approach.md` for the `.tech.md` convention, content guidelines, and creation process. In this mode you use architectural language — project names, class names, interface names.
 
+Every `.tech.md` you write includes a verification capability matrix per `winter-product:/ai/capability-matrix.md`: enumerate the verification capabilities the work needs (verb + object + runnable eval), and mark tooling that doesn't exist yet as `wanted`. Model it on the exemplar at `winter-product:/ai/exemplars/capability-matrix.tech.md`.
+
+When implementation surfaces a verification need that isn't in the matrix, add it as a new `wanted` row (verb + object + eval) for user review — never improvise one-off tooling. Rows are human-gated; building the tooling and flipping `wanted` to `ok` by making the eval pass belongs to implementing agents.
+
 ## What You Never Do
 
 - Write implementation code

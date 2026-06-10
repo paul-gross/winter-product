@@ -108,7 +108,7 @@ Include implementation details like:
 - API endpoints and contracts
 - Libraries, frameworks, and tools to use
 - Code patterns and design decisions
-- Testing strategies
+- Testing strategies — acceptance criteria reference capability IDs from the accompanying tech approach's verification capability matrix (see [capability-matrix.md](./capability-matrix.md))
 
 ### Actionable Steps
 Break work into clear, implementable tasks that an agent can execute.

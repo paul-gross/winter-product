@@ -36,8 +36,8 @@ The refine flow:
 1. **Evaluate** — score the item against the quality bar in [overview-format.md](./overview-format.md) and [writing-style.md](./writing-style.md). Identify missing sections, unresolved questions, and weak reasoning.
 2. **Interactive refinement** — fill gaps with targeted user questions until the item is solid.
 3. **Promote** — move `backlog/<bucket>/<name>.<type>.md` → `work/<name>/00-overview.md` (the canonical overview filename per [overview-format.md](./overview-format.md)). Commit as `product(<name>): promote from backlog`.
-4. **Technical approach** — spawn the `product-engineer` agent to explore the codebase and write `.tech.md` files per [tech-approach.md](./tech-approach.md).
-5. **Phase documents** — for multi-phase work, create numbered `01-<phase-name>.md`, `02-<phase-name>.md`, etc. with the technical specificity needed for implementation.
+4. **Technical approach** — spawn the `product-engineer` agent to explore the codebase and write `.tech.md` files per [tech-approach.md](./tech-approach.md), including the verification capability matrix per [capability-matrix.md](./capability-matrix.md).
+5. **Phase documents** — for multi-phase work, create numbered `01-<phase-name>.md`, `02-<phase-name>.md`, etc. with the technical specificity needed for implementation. Acceptance criteria reference capability IDs from the tech approach's matrix ("verify via `err.smtp` + `obs.audit`"); a phase that references a `wanted` row schedules that tooling work before the dependent feature work.
 6. **Commit** the tech approach and phases as `product(<name>): add technical approach`.
 
 For a manual promotion (without `/refine`):
