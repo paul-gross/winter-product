@@ -24,11 +24,11 @@ name = "winter-product"
 url = "git@github.com:paul-gross/winter-product.git"
 ```
 
-Then run `winter ws init`. The extension's agents become available as `product-engineer`, `product-specialist`, and `plan-reviewer`, and the `todo`, `refine`, and `plan-review` skills install under the workspace's configured prefix — by default `prefix = "wp"` in `winter-ext.toml`, so winter-cli wires them up as `/wp-todo`, `/wp-refine`, and `/wp-plan-review` in this configuration.
+Then run `winter ws init`. The `wp-` prefix is the default — it is workspace-configurable, so your install may differ.
 
 > **Note:** This repository is intended to be **forked**. The `backlog/`, `work/`, and `archive/` directories are your project's product backlog and belong under version control in your fork. Point your workspace's `.winter/config.toml` at your fork's URL so items created during development are tracked alongside the rest of your project history.
 
-See [`index.md`](./index.md) for the full layout — that file is auto-loaded into every Claude session that runs in a winter workspace with this extension installed.
+See [`index.md`](./index.md) for the agents, skills, and layout this extension makes available once installed.
 
 ## License
 
