@@ -20,7 +20,7 @@ Read the file. **Note the item type** — the type drives which rubric Step 1 us
 
 | Type | Format spec | Step 1 rubric | Step 2 shape |
 |------|-------------|----------------|---------------|
-| `.idea.md` | free-form concept (no spec) | rewrite-as-work-item | promote as `.work.md` (Step 3 runs) |
+| `.idea.md` | free-form concept (no spec) | rewrite-as-work-item or TODO (1c) | if converted to `.work.md` → 2a (Step 3 runs); if converted to `.todo.md` → 2b (Step 3 skipped) |
 | `.todo.md` | `winter-product:/ai/todos.md` | TODO rubric (below) | promote as flat `work/<name>/` (Step 3 skipped) |
 | `.work.md` | `winter-product:/ai/overview-format.md` | work-item rubric (below) | promote as `00-overview.md` + phases (Step 3 runs) |
 
@@ -106,7 +106,7 @@ Create the technical approach. This bridges the product plan and implementation.
 
 Spawn a `product-engineer` agent to explore the codebase and write the technical approach. The agent should:
 
-1. Read the work item at `winter-product:/work/<name>/00-overview.md`
+1. Read the work item at `winter-product:/work/<name>/00-overview.md` (or `00-{name}.md` for single-document items — see `winter-product:/ai/overview-format.md` naming conventions)
 2. Read the tech approach conventions at `winter-product:/ai/tech-approach.md` and the matrix format at `winter-product:/ai/capability-matrix.md`
 3. Explore the project worktrees (from the workspace root) to understand existing patterns
 4. Write the tech approach file(s) per the conventions in that document, including the verification capability matrix — the capabilities the work needs to verify, with missing tooling marked `wanted`
