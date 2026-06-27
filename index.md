@@ -13,8 +13,8 @@ Files in this extension are addressed with the `winter-product:` prefix — for 
 | `winter-product:/backlog/` | Prioritized queue. Subdirectories `01-now/`, `02-next/`, `05-near/`, `10-future/` |
 | `winter-product:/work/` | Active work — items promoted from the backlog (one directory per item) |
 | `winter-product:/archive/` | Completed work and TODOs, date-prefixed |
-| `winter-product:/ai/` | Planning conventions (item formats, lifecycle, writing style) |
+| `winter-product:/context/` | Planning conventions (item formats, lifecycle, writing style) |
 
 ## Conventions
 
-The item-type formats (`.idea.md` / `.todo.md` / `.work.md`) and the `backlog/ → work/ → archive/` lifecycle are documented under [ai/](./ai/index.md) — start there before adding, refining, or archiving an item. The `refine` skill moves an item from backlog to work-ready (including the technical approach); the `todo` skill is the fast path for dropping new TODOs into the backlog.
+The item-type formats (`.idea.md` / `.todo.md` / `.work.md`) and the `backlog/ → work/ → archive/` lifecycle are documented under [context/](./context/index.md) — start there before adding, refining, or archiving an item. The `refine` skill moves an item from backlog to work-ready (including the technical approach); the `todo` skill is the fast path for dropping new TODOs into the backlog.

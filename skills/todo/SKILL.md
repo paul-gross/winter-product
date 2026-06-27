@@ -5,7 +5,7 @@ allowed-tools: Bash, Read, Write, Edit, Glob, Grep, AskUserQuestion
 
 Create a TODO for deferred work.
 
-Read `winter-product:/ai/todos.md` for the file format, naming rules, and archive conventions before writing.
+Read `winter-product:/context/todos.md` for the file format, naming rules, and archive conventions before writing.
 
 ## Argument Parsing
 
@@ -38,7 +38,7 @@ TODOs are deferred work by default, so they should land in `02-next` unless ther
 
 ## Step 3: Write the TODO File
 
-Create `winter-product:/backlog/<bucket>/<name>.todo.md` using the bucket chosen in step 2 and the TODO file format defined in `winter-product:/ai/todos.md`. Fill in each section using:
+Create `winter-product:/backlog/<bucket>/<name>.todo.md` using the bucket chosen in step 2 and the TODO file format defined in `winter-product:/context/todos.md`. Fill in each section using:
 - The freeform description from `$ARGUMENTS`
 - Current conversation context (what the user has been working on, why this came up)
 - Codebase knowledge if available (file paths, service names)

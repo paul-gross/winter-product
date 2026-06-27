@@ -21,8 +21,8 @@ Read the file. **Note the item type** — the type drives which rubric Step 1 us
 | Type | Format spec | Step 1 rubric | Step 2 shape |
 |------|-------------|----------------|---------------|
 | `.idea.md` | free-form concept (no spec) | rewrite-as-work-item or TODO (1c) | if converted to `.work.md` → 2a (Step 3 runs); if converted to `.todo.md` → 2b (Step 3 skipped) |
-| `.todo.md` | `winter-product:/ai/todos.md` | TODO rubric (below) | promote as flat `work/<name>/` (Step 3 skipped) |
-| `.work.md` | `winter-product:/ai/overview-format.md` | work-item rubric (below) | promote as `00-overview.md` + phases (Step 3 runs) |
+| `.todo.md` | `winter-product:/context/todos.md` | TODO rubric (below) | promote as flat `work/<name>/` (Step 3 skipped) |
+| `.work.md` | `winter-product:/context/overview-format.md` | work-item rubric (below) | promote as `00-overview.md` + phases (Step 3 runs) |
 
 ## Step 1: Evaluate
 
@@ -30,7 +30,7 @@ Branch by item type. In all branches the goal is the same — **rate each criter
 
 ### 1a. Work item (`.work.md`)
 
-Assess against the quality standards in `winter-product:/ai/overview-format.md` and `winter-product:/ai/writing-style.md`. The goal is a **business-facing work item** that clearly communicates what, why, and how — without technical implementation details.
+Assess against the quality standards in `winter-product:/context/overview-format.md` and `winter-product:/context/writing-style.md`. The goal is a **business-facing work item** that clearly communicates what, why, and how — without technical implementation details.
 
 Criteria:
 
@@ -43,7 +43,7 @@ Criteria:
 
 ### 1b. TODO (`.todo.md`)
 
-Assess against `winter-product:/ai/todos.md`. TODOs are deliberately lightweight — a good TODO is short, scoped, and self-contained, not a stripped-down work item.
+Assess against `winter-product:/context/todos.md`. TODOs are deliberately lightweight — a good TODO is short, scoped, and self-contained, not a stripped-down work item.
 
 Criteria:
 
@@ -84,14 +84,14 @@ Once the item is solid, promote it from the backlog into active work. The shape 
 ### 2a. Work item (`.work.md`)
 
 1. Create `winter-product:/work/<name>/`
-2. Copy the backlog file into the work directory as `00-overview.md` (the canonical overview filename per `winter-product:/ai/overview-format.md`)
+2. Copy the backlog file into the work directory as `00-overview.md` (the canonical overview filename per `winter-product:/context/overview-format.md`)
 3. Remove the original backlog file
 4. Commit: `product(<name>): promote from backlog`
 5. Proceed to Step 3 (Technical Approach).
 
 ### 2b. TODO (`.todo.md`)
 
-Per `winter-product:/ai/todos.md`, TODOs in active work stay as a single file inside a thin directory — no overview, no phases, no tech approach.
+Per `winter-product:/context/todos.md`, TODOs in active work stay as a single file inside a thin directory — no overview, no phases, no tech approach.
 
 1. Create `winter-product:/work/<name>/`
 2. Move the backlog `<name>.todo.md` into the work directory as `<name>.todo.md` (keep the `.todo.md` suffix; the directory is the only structural change)
@@ -106,8 +106,8 @@ Create the technical approach. This bridges the product plan and implementation.
 
 Spawn a `product-engineer` agent to explore the codebase and write the technical approach. The agent should:
 
-1. Read the work item at `winter-product:/work/<name>/00-overview.md` (or `00-{name}.md` for single-document items — see `winter-product:/ai/overview-format.md` naming conventions)
-2. Read the tech approach conventions at `winter-product:/ai/tech-approach.md` and the matrix format at `winter-product:/ai/capability-matrix.md`
+1. Read the work item at `winter-product:/work/<name>/00-overview.md` (or `00-{name}.md` for single-document items — see `winter-product:/context/overview-format.md` naming conventions)
+2. Read the tech approach conventions at `winter-product:/context/tech-approach.md` and the matrix format at `winter-product:/context/capability-matrix.md`
 3. Explore the project worktrees (from the workspace root) to understand existing patterns
 4. Write the tech approach file(s) per the conventions in that document, including the verification capability matrix — the capabilities the work needs to verify, with missing tooling marked `wanted`
 
@@ -119,7 +119,7 @@ Present the technical approach to the user for review. Walk through the capabili
 
 If the work item defines phases and they don't already have detailed phase documents:
 - Create numbered phase files (`01-<phase-name>.md`, `02-<phase-name>.md`, etc.) in the work directory
-- Each phase document should contain technical specificity and actionable implementation steps per `winter-product:/ai/overview-format.md`
+- Each phase document should contain technical specificity and actionable implementation steps per `winter-product:/context/overview-format.md`
 - Acceptance criteria reference capability IDs from the tech approach's matrix; a phase that references a `wanted` row schedules that tooling work before the dependent feature work
 
 ### Commit
