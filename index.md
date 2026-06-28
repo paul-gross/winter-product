@@ -1,6 +1,6 @@
 # Product workflow
 
-A prioritized backlog, an active work area, and an archive — with the conventions, agents, and skills that move items through them. The `product-specialist` agent shapes work items; the `refine` skill turns them into work-ready items; the `product-engineer` agent writes `.tech.md` approach docs. The `todo` skill captures small deferred work. The `plan-review` skill spawns a cold `plan-reviewer` agent to check a plan against the planning specs before implementation begins.
+A prioritized backlog, an active work area, and an archive — with the conventions, agents, and skills that move items through them.
 
 ## Path notation
 
@@ -15,6 +15,17 @@ Files in this extension are addressed with the `winter-product:` prefix — for 
 | `winter-product:/archive/` | Completed work and TODOs, date-prefixed |
 | `winter-product:/context/` | Planning conventions (item formats, lifecycle, writing style) |
 
+## Agents and skills
+
+| Component | Use when |
+|-----------|----------|
+| [`product-specialist`](./agents/product-specialist.md) | shaping a backlog item, defining a feature, or reasoning about user value and priorities |
+| [`product-engineer`](./agents/product-engineer.md) | discovering what the code does in product terms, or writing a `.tech.md` technical approach |
+| [`plan-reviewer`](./agents/plan-reviewer.md) | cold-reviewing a plan against the planning specs (spawned by `plan-review`) |
+| [`refine`](./skills/refine/SKILL.md) | taking a backlog item to work-ready quality and promoting it to active work |
+| [`todo`](./skills/todo/SKILL.md) | capturing small deferred work as a `.todo.md` in the backlog |
+| [`plan-review`](./skills/plan-review/SKILL.md) | checking a plan is implementation-ready before work begins |
+
 ## Conventions
 
-The item-type formats (`.idea.md` / `.todo.md` / `.work.md`) and the `backlog/ → work/ → archive/` lifecycle are documented under [context/](./context/index.md) — start there before adding, refining, or archiving an item. The `refine` skill moves an item from backlog to work-ready (including the technical approach); the `todo` skill is the fast path for dropping new TODOs into the backlog.
+The item-type formats (`.idea.md` / `.todo.md` / `.work.md`) and the `backlog/ → work/ → archive/` lifecycle are documented under [context/](./context/index.md) — start there before adding, refining, or archiving an item.

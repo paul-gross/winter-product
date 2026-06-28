@@ -1,6 +1,7 @@
 ---
 description: Create a lightweight TODO for deferred work items — small refactors, quick enhancements, things to do after the current feature merges
 allowed-tools: Bash, Read, Write, Edit, Glob, Grep, AskUserQuestion
+argument-hint: <description of the work>
 ---
 
 Create a TODO for deferred work.
@@ -29,11 +30,7 @@ Present the derived name to the user with `AskUserQuestion` and offer to adjust 
 TODOs are deferred work by default, so they should land in `02-next` unless there's a reason to elevate or defer them further. Pick the bucket via:
 
 1. **List the actual buckets** — `ls winter-product:/backlog/` to confirm the directories currently in use (don't assume from this skill).
-2. **Ask the user** via `AskUserQuestion`, presenting the buckets discovered above with `02-next` first as the recommended default. Typical buckets and their meaning:
-   - `01-now` — pick up as soon as the current branch merges
-   - `02-next` *(default for deferred TODOs)* — work on after the current item, but no rush
-   - `05-near` — relevant in the next few weeks
-   - `10-future` — someday/maybe; keep it captured but don't schedule
+2. **Ask the user** via `AskUserQuestion`, presenting the buckets discovered above with `02-next` first as the recommended default for deferred TODOs. For what each bucket means, see `winter-product:/context/workflow.md` §"Adding Backlog Items".
 3. **Validate** the user's choice against the directories listed in item 1 before proceeding. If it doesn't match, re-prompt.
 
 ## Step 3: Write the TODO File

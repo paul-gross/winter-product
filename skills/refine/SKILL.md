@@ -1,6 +1,7 @@
 ---
 description: Refine a backlog item — evaluate quality, fill gaps interactively with the user, promote to active work, and create a technical approach
 allowed-tools: Bash, Read, Write, Edit, Glob, Grep, Task, AskUserQuestion
+argument-hint: <item-name>
 ---
 
 Refine a backlog item into work-ready quality and promote it to active work. The skill branches by item type — work items (`.work.md`), TODOs (`.todo.md`), and ideas (`.idea.md`) each have their own rubric and promotion shape.

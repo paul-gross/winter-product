@@ -11,8 +11,13 @@ When a user requests a new feature or improvement:
    - `.todo.md` — small, concrete, well-defined (use the `todo` skill)
    - `.work.md` — product-level plan, potentially multi-phase
 
-2. **Choose a priority bucket**
-   - `01-now`, `02-next`, `05-near`, or `10-future`
+2. **Choose a priority bucket** — the `backlog/` subdirectories, ordered by urgency:
+   - `01-now` — pick up as soon as the current branch merges
+   - `02-next` — work on after the current item, but no rush
+   - `05-near` — relevant in the next few weeks
+   - `10-future` — someday/maybe; keep it captured but don't schedule
+
+   The bucket list is discovered at runtime (`ls backlog/`), so adding or renaming a bucket on disk needs no skill or doc change beyond this list.
 
 3. **Write the item**
    - Use kebab-case-lowercase for the filename
@@ -29,16 +34,7 @@ When a user requests a new feature or improvement:
 
 ## Refining and Promoting to Work
 
-Use the `refine` skill to take a backlog item to work-ready quality and promote it.
-
-The refine flow:
-
-1. **Evaluate** — score the item against the quality bar in [overview-format.md](./overview-format.md) and [writing-style.md](./writing-style.md). Identify missing sections, unresolved questions, and weak reasoning.
-2. **Interactive refinement** — fill gaps with targeted user questions until the item is solid.
-3. **Promote** — move `backlog/<bucket>/<name>.<type>.md` → `work/<name>/00-overview.md` (the canonical overview filename per [overview-format.md](./overview-format.md)). Commit as `product(<name>): promote from backlog`.
-4. **Technical approach** — spawn the `product-engineer` agent to explore the codebase and write `.tech.md` files per [tech-approach.md](./tech-approach.md), including the verification capability matrix per [capability-matrix.md](./capability-matrix.md).
-5. **Phase documents** — for multi-phase work, create numbered `01-<phase-name>.md`, `02-<phase-name>.md`, etc. with the technical specificity needed for implementation. Acceptance criteria reference capability IDs from the tech approach's matrix ("verify via `err.smtp` + `obs.audit`"); a phase that references a `wanted` row schedules that tooling work before the dependent feature work.
-6. **Commit** the tech approach and phases as `product(<name>): add technical approach`.
+Use the `refine` skill to take a backlog item to work-ready quality and promote it — it performs evaluate → promote → technical approach → phases. See [`../skills/refine/SKILL.md`](../skills/refine/SKILL.md) for the full procedure.
 
 After the tech approach lands — or whenever a plan changes significantly — the `plan-review` skill spawns a cold `plan-reviewer` agent that checks the work item against these specs and reports must-fix findings before implementation begins.
 
@@ -48,7 +44,7 @@ For a manual promotion (without `refine`):
 2. Create `winter-product:/work/<name>/`
 3. Move the backlog file in as `00-overview.md`
 4. Commit as `product(<name>): promote from backlog`
-5. Follow steps 4–6 above for the technical approach
+5. Spawn the `product-engineer` agent to write the technical approach — `.tech.md` files per [tech-approach.md](./tech-approach.md) with the verification capability matrix per [capability-matrix.md](./capability-matrix.md), plus numbered phase documents (`01-<phase-name>.md`, …) for multi-phase work whose acceptance criteria reference the matrix's capability IDs. Commit as `product(<name>): add technical approach`.
 
 ## Implementation
 

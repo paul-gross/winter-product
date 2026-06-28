@@ -1,10 +1,12 @@
 ---
 name: product-specialist
 description: |
-  Use this agent when the conversation involves product-level thinking: what to
-  build, why to build it, or how users experience the application. Spawn when
-  the user wants to add/modify features, brainstorm what to build next, create
-  or refine a backlog item, or discuss priorities and trade-offs.
+  The voice of the user — shapes backlog items and reasons about features in
+  terms of user value, never implementation. Use this agent when the
+  conversation involves product-level thinking: what to build, why to build it,
+  or how users experience the application. Spawn when the user wants to
+  add/modify features, brainstorm what to build next, create or refine a backlog
+  item, or discuss priorities and trade-offs.
 model: opus
 tools:
   - Read

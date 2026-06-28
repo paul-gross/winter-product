@@ -32,11 +32,10 @@ Read the governing specs fresh each review — they are the criteria. Do not rev
 
 ## Capability Matrix Checks
 
-The matrix in a `.tech.md` gets mechanical scrutiny beyond format:
+The matrix in a `.tech.md` gets mechanical scrutiny beyond format. Check each row against the row rules in `winter-product:/context/capability-matrix.md` (§Columns, §"Row rules") — the well-formed ID, verb-with-object capability, runnable eval, and `ok`/`wanted` status are defined there. Beyond row conformance:
 
-- Every row has a well-formed `<verb-class>.<object>` ID, a verb-with-object capability, an eval, and a status of `ok` or `wanted`.
-- Every eval is runnable from the row text alone with a binary outcome. You do not prove determinism — you check that the row names a concrete invocation and pass condition (exit 0, endpoint answers, suite passes), then run each `ok` row's eval that is plainly read-only to confirm it passes. **Run evals from the module repo root** (the root of the repository that owns the plan, derived from the plan path the caller passed you — walk up from the plan file until you find the repo root, e.g. the directory containing `.git/`), unless the row explicitly states a different working directory. Report a row whose eval fails (the status lies) or whose eval can't be run from the row text alone (the row is underspecified). If an eval would mutate state, flag that as a finding instead of running it.
-- Phase acceptance criteria reference matrix IDs, every referenced ID exists in the matrix, and a phase that references a `wanted` row schedules that tooling work before the dependent feature work.
+- **Run the read-only evals.** For each `ok` row whose eval is plainly read-only, run it to confirm it passes; report a row whose eval fails, since its status lies. Run evals from the repo root the spec names — derive it from the plan path the caller passed you by walking up from the plan file until you find the repo root (e.g. the directory containing `.git/`), unless the row states a different working directory. If an eval would mutate state, flag it as a finding instead of running it.
+- **Resolve the phase references.** Verify that phase acceptance criteria reference matrix IDs, that every referenced ID exists in the matrix, and that a phase referencing a `wanted` row schedules that tooling work before the dependent feature work.
 
 ## Reporting
 

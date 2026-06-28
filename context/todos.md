@@ -39,9 +39,7 @@ No subdirectories, no phases, no tech files. One file = one TODO.
 
 ## Priority Bucket
 
-TODOs are deferred work by definition, so the default bucket is `02-next` — "pick up after the current item, but no rush." Reserve `01-now` for TODOs that should be worked on as soon as the current branch merges; use `05-near` and `10-future` for items that are further out.
-
-The `todo` skill asks the user for the bucket (defaulting to `02-next`) and validates the choice against the actual `backlog/` directories at runtime, so adding or renaming a bucket on disk is enough — no skill update needed.
+TODOs are deferred work by definition, so the default bucket is `02-next`. For the bucket set and what each one means, see [workflow.md](./workflow.md) §"Adding Backlog Items"; the `todo` skill discovers the live bucket list at runtime and defaults to `02-next`.
 
 ## Lifecycle
 
