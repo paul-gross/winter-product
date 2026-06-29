@@ -6,11 +6,17 @@ The work was a documentation-only change to this extension. No code; the structu
 
 ## Structural Changes
 
-- **New convention document** `context/capability-matrix.md` — the canonical matrix format: columns, ID scheme, verb-with-object rule, eval-before-status rule, `ok`/`wanted` statuses, row ownership, lifecycle. Routed from `context/index.md`.
-- **`context/tech-approach.md`** — the matrix joins "What to Include"; the testing exclusion narrows from all testing strategies to free-text test plans only.
-- **`context/workflow.md`** — refine-flow steps for the technical approach and phase documents gain matrix authoring and capability-ID acceptance criteria.
-- **`agents/product-engineer.md`** — instructed to author the matrix with every `.tech.md` and to add `wanted` rows when implementation surfaces new verification needs.
-- **`skills/refine/SKILL.md`** — the tech-approach step orchestrates matrix authoring; the user-review step walks the rows (rows are human-gated); the phase-documents step requires capability-ID references.
+Documentation-only change — no code, API endpoints, or schema deltas. All structural changes are new and amended convention documents.
+
+**Documentation changes:**
+
+| Module | Document | Change | Verifies via |
+|--------|----------|--------|-------------|
+| winter-product | `context/capability-matrix.md` | New — canonical matrix format, ID scheme, verb-with-object rule, eval-before-status rule, `ok`/`wanted` statuses, row ownership, lifecycle. Routed from `context/index.md`. | `obs.index`, `obs.xref` |
+| winter-product | `context/tech-approach.md` | Amended — matrix joins "What to Include"; testing exclusion narrows from all testing strategies to free-text test plans only. | `obs.xref` |
+| winter-product | `context/workflow.md` | Amended — refine-flow steps gain matrix authoring and capability-ID acceptance criteria. | `obs.xref` |
+| winter-product | `agents/product-engineer.md` | Amended — instructed to author the matrix with every `.tech.md` and add `wanted` rows when implementation surfaces new verification needs. | `obs.index` |
+| winter-product | `skills/refine/SKILL.md` | Amended — tech-approach step orchestrates matrix authoring; user-review step walks rows (human-gated); phase-documents step requires capability-ID references. | `obs.xref` |
 
 ## Verification Capability Matrix
 

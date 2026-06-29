@@ -28,14 +28,35 @@ Tech approach files should be:
 
 ## What to Include
 
-- New projects, classes, or interfaces being introduced
-- Which existing files or patterns are being extended
-- New API endpoints or controller actions
-- Database schema changes (if any)
-- Key method signatures and their purpose
-- Dependencies between new components
-- Which existing patterns or conventions the new code follows
-- A verification capability matrix — the per-module table of verification capabilities the work needs, with missing tooling marked `wanted` (format: [capability-matrix.md](./capability-matrix.md); exemplar: [exemplars/capability-matrix.tech.md](./exemplars/capability-matrix.tech.md))
+### Change skeleton
+
+Emit structural changes as concise tables — one per change type present in the work. Descriptions are one-liners in cells; the table structure carries the detail. Omit a table if the work has no changes of that type.
+
+**Code changes** — new or modified classes, interfaces, and methods:
+
+| Module | Class / Method | Change | Verifies via |
+|--------|----------------|--------|-------------|
+| `module-name` | `dotted.package.ClassName.method_name(param: Type) → Return` | One-line description of the change | `capability-id` |
+
+**API endpoints** — new or modified routes:
+
+| Module | Method | Path | Description | Verifies via |
+|--------|--------|------|-------------|-------------|
+| `module-name` | `POST` | `/api/resource` | One-line description | `capability-id` |
+
+**Schema deltas** — new tables, columns, or migrations:
+
+| Module | Migration | Table | Change | Verifies via |
+|--------|-----------|-------|--------|-------------|
+| `module-name` | `migration_name` | `table_name` | One-line description of the change | `capability-id` |
+
+The **Verifies via** cell names a capability ID from the tech approach's verification capability matrix (below). When the verification method that capability ID names is absent from the application's verifiability matrix, record a `wanted` row in the capability matrix and schedule that tooling work before the dependent change — see [capability-matrix.md](./capability-matrix.md).
+
+Documentation-only changes follow the same pattern using a **Documentation changes** table with columns `Module | Document | Change | Verifies via`.
+
+### Verification capability matrix
+
+A per-module table of the verification capabilities the work needs, with missing tooling marked `wanted`. Format: [capability-matrix.md](./capability-matrix.md). Exemplar: [exemplars/capability-matrix.tech.md](./exemplars/capability-matrix.tech.md).
 
 ## What to Exclude
 

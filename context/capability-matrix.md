@@ -1,6 +1,6 @@
 # Verification Capability Matrix
 
-Every technical approach carries a **verification capability matrix**: a per-module table where each row declares one verification capability the work needs — something the verifier must be able to do, with a runnable check proving it can. The planner and the verifier share the row vocabulary: phase documents reference rows by ID instead of carrying free-text test plans, and missing tooling becomes a scheduled `wanted` row instead of mid-task improvisation.
+Every technical approach carries a **verification capability matrix**: a per-module table where each row declares one verification capability the work needs — something the verifier must be able to do, with a runnable check proving it can. The planner and the verifier share the row vocabulary: phase documents reference rows by ID instead of carrying free-text test plans, and missing tooling becomes a scheduled `wanted` row instead of mid-task improvisation. The evals in this matrix bind to the application's **verifiability matrix** — the inventory of verification methods the application declares in its own harness. A `wanted` row signals that the verification method is absent from both the capability matrix and the application's verifiability matrix and must be built before the dependent work can be verified.
 
 One table per module the work touches. Single-module work gets a single table.
 
@@ -48,3 +48,9 @@ The list is open — add a verb class when none of these fit — but prefer an e
 1. **Authored with the tech approach.** The `product-engineer` agent enumerates the verification capabilities the work needs while writing the `.tech.md` (see [tech-approach.md](./tech-approach.md)), marking missing tooling as `wanted`.
 2. **Referenced by phases.** Phase-document acceptance criteria cite capability IDs ("verify via `err.smtp` + `obs.audit`"). A phase that references a `wanted` row schedules that tooling work before the dependent feature work (see [workflow.md](./workflow.md)).
 3. **Fed by implementation.** When an implementing agent discovers a verification need not in the matrix — test-data tooling, an error to force, an effect to observe — it adds the need as a new `wanted` row (verb + object + eval) for user review, rather than improvising one-off tooling.
+
+## See also
+
+- The capability matrix rows in a `.tech.md` bind to the application's verifiability matrix — the verification-method inventory the application declares in its own harness. Its shape covers runnable commands, manual testing steps, and tools; its absence is a harness gap that blocks verifiability assertions for that module.
+- [tech-approach.md](./tech-approach.md) — the change skeleton tables where each row's **Verifies via** cell references a capability ID from this matrix.
+- [exemplars/capability-matrix.tech.md](./exemplars/capability-matrix.tech.md) — a complete `.tech.md` with passing evals to model new matrices on.
