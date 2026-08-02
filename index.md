@@ -21,7 +21,7 @@ Files in this extension are addressed with the `winter-product:` prefix — for 
 |-----------|----------|
 | [`product-specialist`](./agents/product-specialist.md) | shaping a backlog item, defining a feature, or reasoning about user value and priorities |
 | [`product-engineer`](./agents/product-engineer.md) | discovering what the code does in product terms, or writing a `.tech.md` technical approach |
-| [`product-plan-reviewer`](./agents/product-plan-reviewer.md) | cold-reviewing a plan against the planning specs (spawned by `plan-review`) |
+| [`product-plan-reviewer`](./agents/product-plan-reviewer.md) | cold-reviewing a plan against the planning specs (spawned by winter-product's `plan-review` skill) |
 | [`refine`](./skills/refine/SKILL.md) | taking a backlog item to work-ready quality and promoting it to active work |
 | [`todo`](./skills/todo/SKILL.md) | capturing small deferred work as a `.todo.md` in the backlog |
 | [`plan-review`](./skills/plan-review/SKILL.md) | checking a plan is implementation-ready before work begins |

@@ -1,5 +1,5 @@
 ---
-description: Review a product plan against the planning specs — spawns a fresh-context product-plan-reviewer agent over a work item's overview, tech approach, and phases (or a backlog item) and reports whether it's implementation-ready. Use after writing or refining a plan, or before starting implementation.
+description: Review a product plan against the planning specs — spawns a fresh-context product-plan-reviewer agent over a work item's overview, tech approach, and phases (or a backlog item) and reports whether it's implementation-ready. Use after writing or refining a winter-product work item or backlog plan, or before starting its implementation.
 allowed-tools: Read, Glob, Grep, Task, AskUserQuestion
 argument-hint: <item-name>
 ---
