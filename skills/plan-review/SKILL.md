@@ -1,10 +1,10 @@
 ---
-description: Review a product plan against the planning specs — spawns a fresh-context plan-reviewer agent over a work item's overview, tech approach, and phases (or a backlog item) and reports whether it's implementation-ready. Use after writing or refining a plan, or before starting implementation.
+description: Review a product plan against the planning specs — spawns a fresh-context product-plan-reviewer agent over a work item's overview, tech approach, and phases (or a backlog item) and reports whether it's implementation-ready. Use after writing or refining a plan, or before starting implementation.
 allowed-tools: Read, Glob, Grep, Task, AskUserQuestion
 argument-hint: <item-name>
 ---
 
-Review a product plan with a cold `plan-reviewer` agent and relay the findings. The review's value is the fresh context — do not review the plan in this session yourself.
+Review a product plan with a cold `product-plan-reviewer` agent and relay the findings. The review's value is the fresh context — do not review the plan in this session yourself.
 
 ## Argument Parsing
 
@@ -23,7 +23,7 @@ If no match is found, list the available work items and backlog items and ask th
 
 ## Step 2: Spawn the Reviewer
 
-Spawn a `plan-reviewer` agent **from the workspace root**. The agent definition carries the review methodology; pass it the coordination it needs:
+Spawn a `product-plan-reviewer` agent **from the workspace root**. The agent definition carries the review methodology; pass it the coordination it needs:
 
 - The resolved plan path(s) from Step 1
 - The instruction to return its structured report (verdict, must-fix, nice-to-have, open questions)
