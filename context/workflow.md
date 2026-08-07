@@ -36,7 +36,7 @@ When a user requests a new feature or improvement:
 
 Use the `refine` skill to take a backlog item to work-ready quality and promote it — it performs evaluate → promote → technical approach → phases. See [`../skills/refine/SKILL.md`](../skills/refine/SKILL.md) for the full procedure.
 
-After the tech approach lands — or whenever a plan changes significantly — winter-product's `plan-review` skill spawns a cold `product-plan-reviewer` agent that checks the work item against these specs and reports must-fix findings before implementation begins.
+After the tech approach lands — or whenever a plan changes significantly — run your workspace's plan-review gate over the work item before implementation begins: a cold review that applies these specs as its conformance criteria (the artifact-to-spec table in [index.md](./index.md) routes to them) and runs the capability matrix's read-only evals.
 
 For a manual promotion (without `refine`):
 
