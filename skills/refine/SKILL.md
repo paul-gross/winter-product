@@ -1,5 +1,5 @@
 ---
-description: Refine a backlog item — evaluate quality, fill gaps interactively with the user, promote to active work, and create a technical approach
+description: Refine a backlog item into approved, buildable work. Use when a backlog item needs shaping before it can be built.
 allowed-tools: Bash, Read, Write, Edit, Glob, Grep, Task, AskUserQuestion
 argument-hint: <item-name>
 ---
